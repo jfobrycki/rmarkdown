@@ -151,7 +151,7 @@ You might be interested in starting with a test file. The following steps will g
 
 6. Type in a name for the new html output file.
 
-![Naming the knit document](images/HowToKnit.png)
+![Naming the knit document](images/NameTheKnitFile.png)
 
 7. The code should be procesed and knit. The new html file will appear!
 
