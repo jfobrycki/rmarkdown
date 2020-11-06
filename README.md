@@ -13,8 +13,8 @@ This session has multiple goals. You can view these components in any order.
 * [Discuss the importance of code and documentation](#Discuss-the-importance-of-code-and-documentation)
 * [Explain what R Markdown is](#Explain-what-R-Markdown-is)
 * [Getting started in R Markdown](#getting-started-in-r-markdown)
-* Explain what a code chunk is
-* Describe the settings that can occur in a code chunk
+* [Explain what a code chunk is](#explain-what-a-code-chunk-is)
+* [Run code outside a code chunk](#run-code-outside-a-code-chunk)
 * Demonstrate how multiple languages can be used in RMarkdown
 * Create links within a markdown file
 * Create tables in R Markdown
@@ -175,3 +175,56 @@ If you wanted to make edits to the html file, the best way is to edit the .Rmd f
 
 <hr>
 
+## Explain what a code chunk is
+
+In R Markdown, a code chunk is any set of code that starts with three single quotes in a row and ends with three single quotes in a row.
+
+In the example image below, the code chunk is written in R. Everything outside the code chunk, but still in the same R Markdown document, is written in Markdown. 
+
+![Code chunk in R Markdown](images/CodeChunkInRStudio.png)
+
+After the page is knit, the same results appear as follows:
+
+![Code chunk after knit](images/CodeChunkAfterKnit.png)
+
+There are many options available when setting up a code chunk. These can affect how the code is printed, if the code is run, how plots appear, and other factors. R Studio has a <a href="https://rmarkdown.rstudio.com/lesson-3.html" target="_blank">short list of options here</a> and a <a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf" target="_blank">longer list of all options in this pdf</a>.
+
+As a brief example, here is an example of how the include and echo options appear in R Markdown and after being knit.
+
+![Options in R Markdown](images/OptionsInRMarkdown.png)
+
+Once this code is knit, the options appear as shown below. Please note that the TRUE setting is the default in R Markdown for these two examples.
+
+![Options in R Markdown](images/OptionsAfterKnit.png)
+
+<hr>
+
+* [Back to Session goals](#session-goals)
+
+<hr>
+
+## Run code outside a code chunk
+
+You may be interested in running code outside of a code chunk. This is also possible in RMarkdown. For running code in line, you use a single quote around the statement you are interested in processing.
+
+In R Markdown, a line of code like this
+
+![In line within R Markdown](images/InLineInRMarkdown.png)
+
+will appear like this after knitting
+
+![In line after knit](images/InLineAfterKnit.png)
+
+This technique is helpful if you want to write sentences or paragraphs that have combinations of written text and results. For example, the text that you write can be responsive to results that you generated in a previous section.
+
+![If Else in R Markdown](images/IfElseInRMarkdown.png)
+
+After knitting the code above, the text can then react to those new values.
+
+![If Else after knit](images/IfElseAfterKnit.png)
+
+<hr>
+
+* [Back to Session goals](#session-goals)
+
+<hr>
