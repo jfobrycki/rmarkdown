@@ -15,7 +15,7 @@ This session has multiple goals. You can view these components in any order.
 * [Getting started in R Markdown](#getting-started-in-r-markdown)
 * [Explain what a code chunk is](#explain-what-a-code-chunk-is)
 * [Run code outside a code chunk](#run-code-outside-a-code-chunk)
-* Demonstrate how multiple languages can be used in RMarkdown
+* [Demonstrate how multiple languages can be used in R Markdown](#demonstrate-how-multiple-languages-can-be-used-in-R-Markdown)
 * Create links within a markdown file
 * Create tables in R Markdown
 * Show how to format an word document 
@@ -222,6 +222,38 @@ This technique is helpful if you want to write sentences or paragraphs that have
 After knitting the code above, the text can then react to those new values.
 
 ![If Else after knit](images/IfElseAfterKnit.png)
+
+<hr>
+
+* [Back to Session goals](#session-goals)
+
+<hr>
+
+## Demonstrate how multiple languages can be used in R Markdown
+
+Multiple langauges can be set up in a code chunk.
+
+For example, here are the languages that are listed when I run the following command.
+
+![LanguageEngine](images/LanguageEngine.png)
+
+For example, python can be run in R Markdown. When using python, there is the reticulate package that can also be downloaded. The chunk option below allowed the python code to be run without the reticulate package.
+
+![Python in Markdown](images/PythonInMarkdown.png)
+
+![Python after Knit](images/PythonKnit.png)
+
+One option that could be of interest to you is combining code that is written in R, Stata, and SAS Software. For example, you might be working on a collaborative project in which pieces of code have been written in multiple languages. Combining these code together could be helpful for maintaining the code and results in a single place and generating ideas for new analyses.
+
+When running Stata or SAS Software in R Markdown, you will need to set up an additional engine pathway. This pathway can be set manually and there are also packages that can help you set up the pathways too.
+
+For example, Doug Hemken has a series of tutorials on using <a href="https://www.ssc.wisc.edu/~hemken/Stataworkshops/Stata%20and%20R%20Markdown/StataMarkdown#setting-up-the-stata-engine" target="_blank">Stata in R Markdown</a> and a set on using <a href="https://www.ssc.wisc.edu/~hemken/SASworkshops/Markdown/SASmarkdown.html" target="_blank">SAS in R Markdown</a>.
+
+If you need to set a pathway manually, <a href="https://bookdown.org/yihui/rmarkdown-cookbook/eng-stata.html" target="_blank">as is described here</a>.
+
+These code chunks will only work if you have Stata and SAS Software installed on your computer. 
+
+If you need to set the code chunk manually, the following is an example of setting the pathway on a Windows machine.
 
 <hr>
 
