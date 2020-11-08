@@ -1,0 +1,124 @@
+---
+title: "RMarkdownExample"
+output: html_document
+---
+
+## Example R Markdown document
+
+This example R Markdown file is associated with the tutorial that is currently located at <a href="https://github.com/jfobrycki/rmarkdown" target="_blank">https://github.com/jfobrycki/rmarkdown</a>
+
+## Table of contents {#toc}
+
+As described in the tutorial, these links provide an example of how to move to different sections within a report.
+
+* [See the latest findings](#newfindings)
+* [Research methods](#methods)
+
+## This section shows the code chunk options
+
+This is outside the codechunk. Everything here is run as Markdown/HTML.
+
+```{r}
+# This is a code chunk. As this code chunk was indicated as being written in R, everything in this code chunk runs as it would in R.
+mean(cars$dist)
+summary(cars$speed)
+```
+
+Include = TRUE
+
+```{r, include = TRUE}
+# True is the default in R Markdown
+mean(cars$dist)
+summary(cars$speed)
+```
+
+Include = FALSE
+
+```{r, include = FALSE}
+mean(cars$dist)
+summary(cars$speed)
+```
+
+Echo = TRUE
+
+```{r, echo = TRUE}
+#True is the default in R Markdown
+mean(cars$dist)
+summary(cars$speed)
+```
+
+
+## New findings to report {#newfindings}
+
+Here is a section where you can describe all the latest study findings. The link below will take you back to the table of contents section.
+
+[Back to table of contents](#toc)
+
+## Methods {#methods}
+
+Similarly, you could describe the methods used in this section and then use the link below to move back to the table of contents.
+
+[Back to table of contents](#toc)
+
+
+## Tables
+
+This section shows some of the example code about tables. 
+
+ <table style="width:50%">
+  <tr>
+    <th>Column One</th>
+    <th>Column Two</th>
+  </tr>
+  <tr>
+    <td>Variable One</td>
+    <td>Variable Two</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>40</td>
+  </tr>
+</table> 
+
+Below is the example code with additional table options using the knitr::kable commands.
+
+```{r}
+# Create the aggregation by type and treatment
+b<-aggregate(uptake~Type*Treatment,data=CO2,summary)
+# See what this aggregate summary data looks like
+b
+# Split out the key uptake piece since all the summary columns are counted as only one column
+e<-data.frame(round(b$uptake,2))
+# Verify you are working with the summary statistics information
+e
+# Rename the columns
+colnames(e)<-c("Min","1st Quart","Median","Mean","3rd Quart","Max")
+# Group the information back together
+cbind(b[,1:2],e) 
+# Create a table and specify the alignment within each column
+knitr::kable(cbind(b[,1:2],e),align="llcccccc",caption = "An example table caption.")
+```
+
+
+## Example of loading in the most recent file in a series
+
+```{r}
+# Show all the files in the directory
+list.files()
+# Created a sorted list of the files
+# The pattern helps separate out files that might be in the same folder but not have the same naming structure
+a<-sort(list.files(path="data/", pattern="ExampleDataset"),decreasing=TRUE)
+# Create an object called filename using the first item listed
+# This first item listed should be the most recent file, assuming that the files are numbered by date, for example.
+filename<-a[1]
+# Double check that this filename is the most recent file
+filename
+# Read in this file
+#dataset<-read.csv(filename,header=T)
+# Create an output in the R Markdown file that adds the filename to the report directly. This provides a double check for knowing which dataset is used for the entire report.
+```
+
+This report is created using the file `r print(filename)[1]`
+
+This report is created on `r Sys.Date()`
+

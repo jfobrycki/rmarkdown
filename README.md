@@ -19,8 +19,7 @@ This session has multiple goals. You can view these components in any order.
 * [Create links within an R Markdown file](#create-links-within-an-R-Markdown-file)
 * [Create tables in R Markdown](#create-tables-in-R-Markdown)
 * [Show how to load in a file with a uniform naming structure](#show-how-to-load-in-a-file-with-a-uniform-naming-structure)
-* Show how to format a word document 
-* Provide an example file for additional editing and revising
+* [Provide an example file for additional editing and revising](#provide-an-example-file-for-additional-editing-and-revising)
 
 ## Session at a glance
 
@@ -398,6 +397,18 @@ When the above information is knit using R Markdown, here's the following input 
 These results are based on using the five example datasets that are included in the data folder for this tutorial. Once the results are knit, the file names are listed and the newest file (the file with the name that is highest when sorted in descending order) is read into R. If you are using this method, please make sure the file name component that varies has the same number of digits. For example, if using a year, month, day format, all files should have the same approach such as 20201112, 20201113, etc.
 
 ![Routine file read when knit](images/RoutineFileReadWhenKnit.png)
+
+<hr>
+
+* [Back to Session goals](#session-goals)
+
+<hr>
+
+## Provide an example file for additional editing and revising
+
+This tutorial includes an example file with the code demonstrated. You also can download this markdown file too from the GitHub page. If you download all materials as a zip folder or clone the repository, the example data files are located in the data folder.
+
+Thank you for reviewing this tutorial. Any suggestions for more materials to add are welcome! Three new topics that will be added include: <a href="https://rmarkdown.rstudio.com/articles_docx.html" target="_blank">how to format a word document</a>, <a href="https://bookdown.org/yihui/bookdown/usage.html" target="blank">how to knit multiple, separate files together</a>, and how to transfer R code into R Markdown code. 
 
 <hr>
 
