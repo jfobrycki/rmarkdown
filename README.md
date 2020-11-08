@@ -311,3 +311,53 @@ The example file at the end of this tutorial has examples of links as well!
 
 ## Create tables in R Markdown
 
+Tables can be created in R Markdown using several methods. For example, if you are knitting directly to an HTML file, you can create a table using HTML commands.
+
+The code below is HTML, and if you placed this code outside of a code chunk, the table would appear in a HTML file.
+
+```(html)
+ <table style="width:50%">
+  <tr>
+    <th>Column One</th>
+    <th>Column Two</th>
+  </tr>
+  <tr>
+    <td>Variable One</td>
+    <td>Variable Two</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>40</td>
+  </tr>
+</table> 
+```
+
+Another way to make tables in R Markdown files is to use the <a href="https://bookdown.org/yihui/rmarkdown-cookbook/kable.html" target="_blank">knitr::kable function</a>. This link contains an authoritative overview of how knitr::kable operates. There are many options for knitr::kable tables. The example shown below is intended to be a short introduction to creating tables.
+
+For example, you might be interested in creating a table of summary statistics for a given set of variables. For this example, we will use the <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/zCO2.html" target="_blank">C02 dataset from R</a>.
+
+For example, you might be interested in evaluating the carbon dioxide uptake rates by plant type and treatment.
+
+The following code creates the summary statistics by plant type and treatment.
+
+![Table code in R](images/TableCodeInRStudio.png)
+
+All of the pieces in the above code are knit and displayed to show how the same information can appear multiple ways in an knit HTML file.
+
+The first part of the code does display the information after running the aggregate command. 
+
+![Table code knit part one](images/TableCodeKnitPartOne.png)
+
+By renaming some of the columns and merging the columns back to the type and treatment information, you can create a table that has the same data, just presented in a different format. The knitr:kable formatting provides a well-organized table that can work well in a report.
+
+![Table code knit part two](images/TableCodeKnitPartTwo.png)
+
+Interested in adding a caption to the table, maybe to title this table: Table 1. Summary of carbon dioxide uptake by growth treatment and plant type. Within the knitr:kable commmand, you can add a <a href="https://bookdown.org/yihui/rmarkdown-cookbook/kable.html#tab:kable-cap" target="_blank">caption option</a> where you enter the name that you would like to use for the table.
+
+In the resources listed at the beginning of this document was the R Markdown introduction from R Studio. This documentation includes a <a href="https://rmarkdown.rstudio.com/lesson-7.html" target="_blank">page about Tables</a> that shows additional options and packages for creating tables in R Markdown.
+
+<hr>
+
+* [Back to Session goals](#session-goals)
+
+<hr>
