@@ -16,8 +16,8 @@ This session has multiple goals. You can view these components in any order.
 * [Explain what a code chunk is](#explain-what-a-code-chunk-is)
 * [Run code outside a code chunk](#run-code-outside-a-code-chunk)
 * [Demonstrate how multiple languages can be used in R Markdown](#demonstrate-how-multiple-languages-can-be-used-in-R-Markdown)
-* Create links within a markdown file
-* Create tables in R Markdown
+* [Create links within an R Markdown file](#create-links-within-an-R-Markdown-file)
+* [Create tables in R Markdown](#create-tables-in-R-Markdown)
 * Show how to format an word document 
 * Show how to load in a file with a uniform naming structure
 * Provide an example file for additional editing and revising
@@ -249,14 +249,65 @@ When running Stata or SAS Software in R Markdown, you will need to set up an add
 
 For example, Doug Hemken has a series of tutorials on using <a href="https://www.ssc.wisc.edu/~hemken/Stataworkshops/Stata%20and%20R%20Markdown/StataMarkdown#setting-up-the-stata-engine" target="_blank">Stata in R Markdown</a> and a set on using <a href="https://www.ssc.wisc.edu/~hemken/SASworkshops/Markdown/SASmarkdown.html" target="_blank">SAS in R Markdown</a>.
 
-If you need to set a pathway manually, <a href="https://bookdown.org/yihui/rmarkdown-cookbook/eng-stata.html" target="_blank">as is described here</a>.
+If you need to set a pathway manually, you can direct the engine to the .exe file on your computer, <a href="https://bookdown.org/yihui/rmarkdown-cookbook/eng-stata.html" target="_blank">as is described here</a>.
 
 These code chunks will only work if you have Stata and SAS Software installed on your computer. 
 
-If you need to set the code chunk manually, the following is an example of setting the pathway on a Windows machine.
 
 <hr>
 
 * [Back to Session goals](#session-goals)
 
 <hr>
+
+## Create links within an R Markdown file
+
+When you are making your R Markdown report, you may be interested in knitting to an HTML file and allowing the user to navigate to different sections of the report.
+
+One method for creating internal links within the knit HTML file is to use a series of headers and links. 
+
+When building a link, you need to create the linking name and where the link will go. Then, you need to create a heading that matches where the link goes. 
+
+For example, you might want the report to start with a section that describes the latest research findings.
+
+```
+[See the latest research findings](#newfindings)
+```
+
+The content in the square brackets is the text that will appear in the R Markdown HTML file. The content in the parentheses is the link name.
+
+In the above example, if a user clicks on the phrase "See the latest research findings," they will be sent to some part of the document that includes the link name (#newfindings).
+
+At another point in the document, you need to create the landing point for this link.
+
+```
+## New findings to report {#newfindings}
+```
+
+You could create a new header in the document and include this link text {#newfindings}. Now when a user clicks the link you created above, they will be transported to this header because the #newfindings text links these two parts of the report.
+
+How could you direct the user back to the original link? One option for a report is to create a series of links in a table of contents at the report's beginning. You can do the same link making process.
+
+At the end of a section, you can create a link that sends the user back to the table of contents.
+
+```
+[Back to table of contents](#toc)
+```
+
+At the top of the document, you can create a landing point for this link. When users click on the "Back to the table of contents" link, they will be transported to the "Table of contents" header.
+
+```
+## Table of contents {#toc}
+```
+
+The example file at the end of this tutorial has examples of links as well!
+
+
+<hr>
+
+* [Back to Session goals](#session-goals)
+
+<hr>
+
+## Create tables in R Markdown
+
