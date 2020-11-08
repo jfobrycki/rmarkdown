@@ -18,8 +18,8 @@ This session has multiple goals. You can view these components in any order.
 * [Demonstrate how multiple languages can be used in R Markdown](#demonstrate-how-multiple-languages-can-be-used-in-R-Markdown)
 * [Create links within an R Markdown file](#create-links-within-an-R-Markdown-file)
 * [Create tables in R Markdown](#create-tables-in-R-Markdown)
-* Show how to format an word document 
-* Show how to load in a file with a uniform naming structure
+* [Show how to load in a file with a uniform naming structure](#show-how-to-load-in-a-file-with-a-uniform-naming-structure)
+* Show how to format a word document 
 * Provide an example file for additional editing and revising
 
 ## Session at a glance
@@ -355,6 +355,49 @@ By renaming some of the columns and merging the columns back to the type and tre
 Interested in adding a caption to the table, maybe to title this table: Table 1. Summary of carbon dioxide uptake by growth treatment and plant type. Within the knitr:kable commmand, you can add a <a href="https://bookdown.org/yihui/rmarkdown-cookbook/kable.html#tab:kable-cap" target="_blank">caption option</a> where you enter the name that you would like to use for the table.
 
 In the resources listed at the beginning of this document was the R Markdown introduction from R Studio. This documentation includes a <a href="https://rmarkdown.rstudio.com/lesson-7.html" target="_blank">page about Tables</a> that shows additional options and packages for creating tables in R Markdown.
+
+<hr>
+
+* [Back to Session goals](#session-goals)
+
+<hr>
+
+## Show how to load in a file with a uniform naming structure
+
+
+If you are creating a data analysis routine using R Markdown, you might be using a consistent dataset that is updated routinely. You would like to create a new report each time the dataset is updated. Rather than modifying the code each time the new report is created, you can write code to load in the latest file. There are several assumptions here, the most important one is that the files have a uniform naming structure as you'll see in the example below.
+
+This example uses 5 example files that contain one row of data each. The data were created for this example. The datasets that you are using will likely have greater than 1 line of data per file. These are just example files to show how the file can be automatically read into R.
+
+The key to reading in the files automatically is to use the <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/list.files.html" target="_blank">list.files</a> command to review the files in the folder of interest. If the folder contains files of several types, you can modify the list.files() command to include the file naming pattern of the data files that you are interested in analyzing routinely with a report.
+
+Please note, if your R Markdown file is set in a different directory from the datafiles, you would need to <a href="https://bookdown.org/yihui/rmarkdown-cookbook/working-directory.html" target="_blank">set the working directory</a>. You can also place the .Rmd file within the same directory as the data files.
+
+```
+# Show all the files in the directory
+list.files()
+# Created a sorted list of the files
+# The pattern helps separate out files that might be in the same folder but not have the same naming structure
+a<-sort(list.files(pattern="ExampleDataset"),decreasing=TRUE)
+# Create an object called filename using the first item listed
+# This first item listed should be the most recent file, assuming that the files are numbered by date, for example.
+filename<-a[1]
+# Double check that this filename is the most recent file
+filename
+# Read in this file
+#dataset<-read.csv(filename,header=T)
+# Create an output in the R Markdown file that adds the filename to the report directly. This provides a double check for knowing which dataset is used for the entire report. This output can be created outside the code chunk.
+
+This report is created using the file `r print(filename)[1]`
+```
+
+When the above information is knit using R Markdown, here's the following input and output.
+
+![Routine file read in R](images/RoutineFileReadInR.png)
+
+These results are based on using the five example datasets that are included in the data folder for this tutorial. Once the results are knit, the file names are listed and the newest file (the file with the name that is highest when sorted in descending order) is read into R. If you are using this method, please make sure the file name component that varies has the same number of digits. For example, if using a year, month, day format, all files should have the same approach such as 20201112, 20201113, etc.
+
+![Routine file read when knit](images/RoutineFileReadWhenKnit.png)
 
 <hr>
 
