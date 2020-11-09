@@ -246,12 +246,22 @@ One option that could be of interest to you is combining code that is written in
 
 When running Stata or SAS Software in R Markdown, you will need to set up an additional engine pathway. This pathway can be set manually and there are also packages that can help you set up the pathways too.
 
-For example, Doug Hemken has a series of tutorials on using <a href="https://www.ssc.wisc.edu/~hemken/Stataworkshops/Stata%20and%20R%20Markdown/StataMarkdown#setting-up-the-stata-engine" target="_blank">Stata in R Markdown</a> and a set on using <a href="https://www.ssc.wisc.edu/~hemken/SASworkshops/Markdown/SASmarkdown.html" target="_blank">SAS in R Markdown</a>.
+For example, Doug Hemken has a series of tutorials on using <a href="https://www.ssc.wisc.edu/~hemken/Stataworkshops/Stata%20and%20R%20Markdown/StataMarkdown#setting-up-the-stata-engine" target="_blank">Stata in R Markdown</a> and a set on using <a href="https://www.ssc.wisc.edu/~hemken/SASworkshops/Markdown/SASmarkdown.html" target="_blank">SAS in R Markdown</a>. The packages from Doug Hemken provide additional output options for the two programs.
 
 If you need to set a pathway manually, you can direct the engine to the .exe file on your computer, <a href="https://bookdown.org/yihui/rmarkdown-cookbook/eng-stata.html" target="_blank">as is described here</a>.
 
 These code chunks will only work if you have Stata and SAS Software installed on your computer. 
 
+For example, if you wanted to run SAS Software, Stata, and R in a single markdown document, you need to create the pathways for both these programs. In case you need to set the pathway manually, here's an example. These file names are generic, as the individual files may be in a different location on your computer. You want to navigate to the specific .exe file (if on a Windows machine). 
+
+```
+saspath<- "C:/Program Files/NavigateToTheFinalFile/Version/sas.exe"
+statapath<- "C:/Program Files/NavigateToTheFinalFile/StataVersion/Stata.exe"
+sasopts <- "-nosplash -ls 75"
+knitr::opts_chunk$set(engine.path=list(sas=saspath,saslog=saspath,stata=statapath),engine.opts=list(sas=sasopts,saslog=sasopts),comment=NA)
+```
+
+Then if you wanted to run code in a specific chunk, you would start the code chunk with either {stata} or {sas}.
 
 <hr>
 

@@ -122,3 +122,12 @@ This report is created using the file `r print(filename)[1]`
 
 This report is created on `r Sys.Date()`
 
+## Example of running multiple languages in R Markdown
+
+```{r}
+#The below code will not run because the path names are generic
+#saspath<- "C:/Program Files/NavigateToTheFinalFile/Version/sas.exe"
+#statapath<- "C:/Program Files/NavigateToTheFinalFile/StataVersion/Stata.exe"
+#sasopts <- "-nosplash -ls 75"
+#knitr::opts_chunk$set(engine.path=list(sas=saspath,saslog=saspath,stata=statapath),engine.opts=list(sas=sasopts,saslog=sasopts),comment=NA)
+```
