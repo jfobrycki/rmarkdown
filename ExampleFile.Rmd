@@ -124,6 +124,8 @@ This report is created on `r Sys.Date()`
 
 ## Example of running multiple languages in R Markdown
 
+Example for SAS Software or Stata
+
 ```{r}
 #The below code will not run because the path names are generic
 #saspath<- "C:/Program Files/NavigateToTheFinalFile/Version/sas.exe"
@@ -131,3 +133,23 @@ This report is created on `r Sys.Date()`
 #sasopts <- "-nosplash -ls 75"
 #knitr::opts_chunk$set(engine.path=list(sas=saspath,saslog=saspath,stata=statapath),engine.opts=list(sas=sasopts,saslog=sasopts),comment=NA)
 ```
+
+Example using Python
+
+```{python, python.reticulate=FALSE}
+a=10
+b=15
+if b>a:
+   print("b is greater than a")
+else:
+   print("a is greater than b")
+```
+
+Same example using R with in line results
+
+```{r}
+a<-10
+b<-15
+```
+
+When comparing value a and value b, `r ifelse(a>b,print("a is greater than b"),print("b is greater than a"))`
